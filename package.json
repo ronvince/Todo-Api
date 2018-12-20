@@ -3,7 +3,7 @@
   "version": "",
   
   "scripts":{
-    "start": "node server/server.js"
+    "start": "nodemon server/server.js"
   },
 
   "engines": {
