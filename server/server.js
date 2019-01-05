@@ -14,8 +14,31 @@ app.set('view engine', 'hbs');
 
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const port = process.env.PORT || 3000;
+
+app.post('/newTodo', (req, res) => {
+
+	if(req.body.note == null){
+
+	}
+
+	var todo = new Todo({
+		text : req.body.note
+	});
+
+	todo.save().then((doc) =>{
+		res.render('DisplayNote.hbs',{
+			title : 'Recently Added',
+			note : req.body.note
+		});
+	}, (e) =>{
+		res.send('New Note: ' + req.body.note);
+	});
+    
+});
+
 
 app.post('/todos', (req,res) =>{
 
@@ -32,15 +55,6 @@ app.post('/todos', (req,res) =>{
 		res.status(400).send(e);
 	});
 
-});
-
-
-app.post('/new', (req,res) =>{
-	console.log(req);
-	if(req.body.firstname == null){
-		console.log('here');
-	}
-	res.send(req.params);
 });
 
 
@@ -72,7 +86,7 @@ app.get('/todos/:id', (req, res)=>{
 	});
 });
 
-app.get('/new', (req, res) =>{
+app.get('/newTodo', (req, res) =>{
 	res.render('NewNote.hbs',{
 		title: 'New Note',
 	});

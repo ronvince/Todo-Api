@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>New Note</title>
-	
+	<title>{{title}}</title>
 </head>
 <body>
+<p><a href = "/">Home</a></p>
+<p><a href = "/newTodo">Add new one....</a></p>
+<form method="post" action="/newTodo">
+    Note:<input type="text" name="note"><br>
 	
-	<form action="/new" method="post">
-	First Name: <br>
-	<input type="text" name="firstname" value="Mickey"><br>
-	
-	Last name:<br>
-	<input type="text" name="lastname" value="Mouse"><br><br>
-	
-	<input type="submit" value="Submit">
-	
+    <input type="submit">
 </form>
+
 </body>
-</html>
