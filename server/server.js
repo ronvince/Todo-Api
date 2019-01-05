@@ -34,6 +34,16 @@ app.post('/todos', (req,res) =>{
 
 });
 
+
+app.post('/new', (req,res) =>{
+	console.log(req);
+	if(req.body.firstname == null){
+		console.log('here');
+	}
+	res.send(req.params);
+});
+
+
 app.get('/todos', (req, res)=>{
 	Todo.find().then((todos) =>{
 		res.send({todos});
@@ -67,6 +77,8 @@ app.get('/new', (req, res) =>{
 		title: 'New Note',
 	});
 });
+
+
 
 app.listen(port, ()=>{
 	console.log(`Startted at Port ${port}`);

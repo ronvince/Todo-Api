@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 <head>
 	<title>New Note</title>
-	<script src="/views/script.js"></script>
+	
 </head>
 <body>
 	
-	<input class="c00" autocomplete="off" name="00" maxlength="2"  id="00"><br><br>
-	<input class="c01" autocomplete="off" name="01" maxlength="1"  id="01">
-
-	<button id = "test" type="button" onclick="test()">test</button>
+	<form action="/new" method="post">
+	First Name: <br>
+	<input type="text" name="firstname" value="Mickey"><br>
+	
+	Last name:<br>
+	<input type="text" name="lastname" value="Mouse"><br><br>
+	
+	<input type="submit" value="Submit">
+	
+</form>
 </body>
 </html>
